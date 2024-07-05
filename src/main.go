@@ -24,7 +24,8 @@ func main() {
 			}
 
 			for _, user := range users {
-				sendEmail(user.Email, user.Name)
+				wg.Add(1)
+				go sendEmail(user.Email, user.Name)
 				fmt.Printf("Sent email to %s\n", user.Email)
 			}
 		}

@@ -4,12 +4,16 @@ import (
 	"fmt"
 	"net/smtp"
 	"os"
+	"sync"
 
 	"github.com/joho/godotenv"
 	"github.com/jordan-wright/email"
 )
 
+var wg sync.WaitGroup
+
 func sendEmail(address string, name string) error {
+	defer wg.Done()
 	err := godotenv.Load()
 	if err != nil {
 		return err
