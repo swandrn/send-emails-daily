@@ -28,7 +28,6 @@ func sendEmail(address string, name string) error {
 		Vous avez des tâches non complétés !`, name),
 	)
 
-	//Change password
 	err = emailToSend.Send("smtp.mail.yahoo.com:587", smtp.PlainAuth("", os.Getenv("EMAIL_USER"), os.Getenv("EMAIL_APP_PWD"), "smtp.mail.yahoo.com"))
 	if err != nil {
 		return err

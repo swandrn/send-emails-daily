@@ -7,7 +7,6 @@ import (
 
 func main() {
 	ticker := time.NewTicker(24 * time.Hour)
-	// ticker := time.NewTicker(5 * time.Second)
 	db := openDbConnection()
 
 	for {
@@ -26,7 +25,7 @@ func main() {
 			for _, user := range users {
 				wg.Add(1)
 				go sendEmail(user.Email, user.Name)
-				fmt.Printf("Sent email to %s\n", user.Email)
+				fmt.Printf("Sending email to %s\n", user.Email)
 			}
 		}
 	}
