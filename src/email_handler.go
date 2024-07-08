@@ -32,5 +32,6 @@ func sendEmail(address string, name string) error {
 	if err != nil {
 		return err
 	}
+	fmt.Printf("Email sent to %s\n", address)
 	return nil
 }
